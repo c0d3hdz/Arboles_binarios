@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+        <title>Arboles</title>
+        <link rel="stylesheet" href="./style/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Arboles Binarios 🌳</h1>
+            </header>
+            <div id="mynetwork"></div>
+            <div id="treeInfo">
+                <div>
+                    <p><strong>Raíz:</strong></p>
+                </div>
+                <div>
+                    <p><strong>Ramas:</strong></p>
+                </div>
+                <div>
+                    <p><strong>Hojas:</strong></p>
+                </div>
+            </div>
+            <div id="controls">
+                <div>
+                    <input type="text" id="nodeLabel" placeholder="Nombre del nodo" />
+                    <button onclick="addNode()">Agregar Nodo</button>
+                </div>
+                <div>
+                    <input type="text" id="fromNode" placeholder="De nodo (ID)" />
+                    <input type="text" id="toNode" placeholder="A nodo (ID)" />
+                    <button onclick="addEdge()">Agregar Conexión</button>
+                </div>
+                <div>
+                    <button onclick="clearTree()">Limpiar</button>
+                </div>
+            </div>
+            <footer>
+                <p>
+                    <a href="https://www.instagram.com/c0d3hdz_" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" >
+                    </a>
+                </p>
+                <p>
+                    <a href="https://github.com/c0d3hdz" target="_blank">
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                    </a>
+                </p>
+            </footer>
+        </main>
+    </body>
+    <script src="./js/scrip.js"></script>
+</html>

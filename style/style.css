@@ -1,0 +1,141 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    background-image: radial-gradient(circle, #f1271129, #f5af192f);
+}
+main {
+    margin: auto;
+    width: 800px;
+    padding: 2rem;
+}
+header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-size: 4.6em;
+        margin: 0;
+        background-image: linear-gradient(to right, #f12711, #f5af19);
+        -webkit-background-clip: text;
+        color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        text-shadow: 2px 2px 14px rgba(230, 0, 0, 0.2);
+    }
+}
+#mynetwork {
+    width: 800px;
+    height: 500px;
+    border: 2px solid rgb(255, 90, 90);
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f1271175, #f5af196e);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    div {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+}
+#controls button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    border: none;
+    background-image: linear-gradient(to right, #f12711, #f5af19);
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+#controls button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+#controls button:active {
+    transform: scale(0.95);
+    transition: all 0.3s ease-in-out;
+}
+#controls input {
+    padding: 10px;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    border: 2px solid rgb(255, 162, 90);
+    background-image: linear-gradient(to right, #f127111b, #f5af1940);
+    width: 150px;
+}
+#controls input:focus {
+    outline: none;
+}
+#treeInfo {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f127111b, #f5af1940);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    margin-top: 20px;
+    p {
+        transition: all 0.3s ease-in-out;
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    }
+    p:hover {
+        cursor: pointer;
+        transform: translateY(-5px);
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+        transition: all 0.3s ease-in-out;
+    }
+}
+@media screen and (max-width: 800px) {
+    body {
+        height: 100vh;
+        padding: 15px;
+    }
+    main {
+        width: 100%;
+    }
+    #mynetwork {
+        width: 100%;
+    }
+    #controls {
+        flex-direction: column;
+        gap: 10px;
+        div {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}
