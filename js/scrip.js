@@ -23,6 +23,17 @@ var options = {
 var network = new vis.Network(container, data, options)
 function addNode() {
     var label = document.getElementById('nodeLabel').value
+    var existingNode = nodes.get({
+        filter: function (item) {
+            return item.label === label
+        },
+    })
+
+    if (existingNode.length > 0) {
+        alert('Ya existe un nodo con este label.')
+        return
+    }
+
     var id = nodes.length + 1
     nodes.add({ id: id, label: label })
     updateNodeColors()
@@ -30,10 +41,27 @@ function addNode() {
 }
 
 function addEdge() {
-    var from = parseInt(document.getElementById('fromNode').value)
-    var to = parseInt(document.getElementById('toNode').value)
-    if (nodes.get(from) && nodes.get(to)) {
-        edges.add({ from: from, to: to })
+    var fromLabel = document.getElementById('fromNode').value
+    var toLabel = document.getElementById('toNode').value
+
+    var fromNode = nodes.get({
+        filter: function (item) {
+            return item.label === fromLabel
+        },
+    })[0]
+
+    var toNode = nodes.get({
+        filter: function (item) {
+            return item.label === toLabel
+        },
+    })[0]
+
+    if (fromNode && toNode) {
+        if (fromNode.id === toNode.id) {
+            alert('No se puede conectar un nodo consigo mismo.')
+            return
+        }
+        edges.add({ from: fromNode.id, to: toNode.id })
         updateNodeColors()
         updateTreeInfo()
     } else {

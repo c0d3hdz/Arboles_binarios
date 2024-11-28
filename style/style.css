@@ -1,22 +1,18 @@
 html {
     font-size: 62.5%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-    background-image: radial-gradient(circle, #f1271129, #f5af192f);
+    background-color: rgb(17, 17, 26);
 }
 main {
+    padding: 0;
     margin: auto;
     width: 800px;
-    padding: 2rem;
 }
 header {
     display: flex;
@@ -26,106 +22,272 @@ header {
     h1 {
         font-size: 4.6em;
         margin: 0;
-        background-image: linear-gradient(to right, #f12711, #f5af19);
+        background-image: linear-gradient(to right, #1119f1, #f5196a);
         -webkit-background-clip: text;
         color: transparent;
         background-clip: text;
         font-weight: 700;
-        text-shadow: 2px 2px 14px rgba(230, 0, 0, 0.2);
+        text-shadow: 0px 0px 24px rgba(139, 200, 244, 0.195);
+    }
+}
+.Info_Content {
+    text-wrap: balance;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background-image: linear-gradient(to bottom, #2f00aebb, #192bf500);
+    padding: 10px;
+    border-radius: 5px;
+    h2 {
+        background-image: linear-gradient(to right, #11bdf1, #f519ac);
+        -webkit-background-clip: text;
+        color: transparent;
+        background-clip: text;
+        font-size: 2.4rem;
+        font-weight: 700;
+        text-shadow: 0px 0px 24px rgba(139, 200, 244, 0.195);
+    }
+    p {
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .funcionamiento {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        p {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
     }
 }
 #mynetwork {
     width: 800px;
     height: 500px;
-    border: 2px solid rgb(255, 90, 90);
+    border: 5px solid rgb(197, 90, 255);
     border-radius: 5px;
-    background-image: linear-gradient(to right, #f1271175, #f5af196e);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(to right, #115cf111, #9219f519);
+    box-shadow: 0 0 0.5em 0.2em rgba(255, 138, 214, 0.5);
+    cursor: grab;
 }
 #controls {
-    margin-top: 20px;
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     div {
         display: flex;
         gap: 10px;
         margin-bottom: 10px;
     }
+    .Add_node {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 25px;
+        border-bottom: solid 1px rgba(199, 139, 244, 0.756);
+        border-radius: 5px;
+        p {
+            background-image: linear-gradient(to right, #11bdf1, #f519ac);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 3.4rem;
+            font-weight: 700;
+            text-shadow: 0px 0px 24px rgba(139, 200, 244, 0.195);
+        }
+        .Name_node {
+            display: flex;
+            flex-direction: column;
+            input {
+                color: aliceblue;
+                padding: 10px;
+                font-size: 1.6rem;
+                border-radius: 5px;
+                background-color: transparent;
+                border-right: solid 2px rgba(139, 237, 244, 0.756);
+                border-bottom: solid 1px rgba(139, 237, 244, 0.756);
+                box-shadow: 0 0 5em 0.2em rgba(150, 50, 102, 0.5);
+                width: 250px;
+                transition: all 0.3s ease-in-out;
+            }
+            input:hover {
+                box-shadow: 0 0 15px 0.2em rgba(199, 139, 244, 0.5), 0 0 30px rgba(183, 139, 244, 0.5),
+                    0 0 45px rgba(150, 50, 102, 0.5);
+                transform: scale(1.1) rotate(2deg);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+    .Node_edge {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+            background-image: linear-gradient(to right, #11bdf1, #f519ac);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 3.4rem;
+            font-weight: 700;
+            text-shadow: 0px 0px 24px rgba(139, 200, 244, 0.195);
+        }
+        .node1,
+        .node2 {
+            transition: all 0.3s ease-in-out;
+        }
+        .node1 {
+            border: 3px solid rgb(107, 174, 255);
+            background-color: transparent;
+        }
+        .node2 {
+            border: 3px solid #97ff82;
+            background-color: transparent;
+        }
+        .arrow {
+            margin: 30px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid rgb(26, 205, 255);
+        }
+        input {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            text-align: center;
+            border: none;
+            color: rgb(233, 233, 233);
+            font: 1em sans-serif;
+        }
+        .node1:hover {
+            transform: scale(1.2) rotate(-2deg);
+            box-shadow: 0px 0px 10px 5px rgba(107, 174, 255, 0.476);
+            transition: all 0.3s ease-in-out;
+        }
+        .node1:focus {
+            transform: scale(1.2) rotate(-2deg);
+            box-shadow: 0px 0px 10px 5px rgba(107, 174, 255, 0.476);
+            transition: all 0.3s ease-in-out;
+        }
+        .node2:hover {
+            transform: scale(1.2) rotate(2deg);
+            box-shadow: 0px 0px 10px 5px #97ff8273;
+            transition: all 0.3s ease-in-out;
+        }
+        .node2:focus {
+            transform: scale(1.2) rotate(2deg);
+            box-shadow: 0px 0px 10px 5px #97ff8273;
+            transition: all 0.3s ease-in-out;
+        }
+    }
 }
-#controls button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 1.6rem;
-    border-radius: 5px;
-    border: none;
-    background-image: linear-gradient(to right, #f12711, #f5af19);
-    color: white;
-    transition: all 0.3s ease-in-out;
-}
-#controls button:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
-}
-#controls button:active {
-    transform: scale(0.95);
-    transition: all 0.3s ease-in-out;
-}
-#controls input {
-    padding: 10px;
-    font-size: 1.6rem;
-    border-radius: 5px;
-    border: 2px solid rgb(255, 162, 90);
-    background-image: linear-gradient(to right, #f127111b, #f5af1940);
-    width: 150px;
+
+.Clear_button {
+    position: relative;
+    top: -55px;
+    left: 5px;
+    .button {
+        width: 50px;
+        height: 50px;
+        border-top-right-radius: 50%;
+        background-color: rgb(16, 32, 63);
+        border: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+        cursor: pointer;
+        transition-duration: 0.3s;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .svgIcon {
+        width: 12px;
+        transition-duration: 0.3s;
+    }
+
+    .svgIcon path {
+        fill: white;
+    }
+
+    .button:hover {
+        width: 140px;
+        border-top-right-radius: 5px;
+        transition-duration: 0.3s;
+        background-color: rgb(255, 69, 69);
+        align-items: center;
+    }
+
+    .button:hover .svgIcon {
+        width: 50px;
+        transition-duration: 0.3s;
+        transform: translateY(60%);
+    }
+
+    .button::before {
+        position: absolute;
+        top: -20px;
+        content: 'Limpiar';
+        color: white;
+        transition-duration: 0.3s;
+        font-size: 2px;
+    }
+
+    .button:hover::before {
+        font-size: 13px;
+        opacity: 1;
+        transform: translateY(30px);
+        transition-duration: 0.3s;
+    }
 }
 #controls input:focus {
     outline: none;
 }
 #treeInfo {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 15px auto;
     padding: 10px;
+    background-image: linear-gradient(to right, #2f00aebb, #192bf500);
     border-radius: 5px;
-    background-image: linear-gradient(to right, #f127111b, #f5af1940);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     div {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
-}
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    margin-top: 20px;
     p {
-        transition: all 0.3s ease-in-out;
-        img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-    }
-    p:hover {
-        cursor: pointer;
-        transform: translateY(-5px);
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-        transition: all 0.3s ease-in-out;
+        background-image: linear-gradient(to right, #11bdf1, #f5af19);
+        -webkit-background-clip: text;
+        color: transparent;
+        background-clip: text;
+        border-right: solid 1px rgba(139, 244, 232, 0.385);
+        border-radius: 3px;
+        padding-left: 5px;
     }
 }
 @media screen and (max-width: 800px) {
     body {
-        height: 100vh;
-        padding: 15px;
+        width: 100%;
+        position: absolute;
+        padding: 0;
+        left: -15px;
+        box-sizing: border-box;
     }
     main {
-        width: 100%;
+        width: 90%;
     }
     #mynetwork {
         width: 100%;
@@ -133,9 +295,9 @@ footer {
     #controls {
         flex-direction: column;
         gap: 10px;
-        div {
-            flex-direction: column;
-            gap: 10px;
-        }
+    }
+    #treeInfo {
+        display: flex;
+        flex-direction: column;
     }
 }
