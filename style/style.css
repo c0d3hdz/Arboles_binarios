@@ -69,14 +69,13 @@ header {
     height: 500px;
     border: 5px solid rgb(197, 90, 255);
     border-radius: 5px;
-    background-image: linear-gradient(to right, #115cf111, #9219f519);
-    box-shadow: 0 0 0.5em 0.2em rgba(255, 138, 214, 0.5);
+    background-image: linear-gradient(to right, #115cf140, #9219f52d);
+    backdrop-filter: blur(5px);
     cursor: grab;
 }
 #controls {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     div {
@@ -283,6 +282,7 @@ header {
         width: 100%;
         position: absolute;
         padding: 0;
+        left: -11.5px;
         box-sizing: border-box;
     }
     main {
