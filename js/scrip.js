@@ -12,7 +12,9 @@ var options = {
             sortMethod: 'directed',
         },
     },
+
     edges: {
+        smooth: true,
         arrows: 'to',
         color: {
             color: 'rgb(250, 250, 250)',
@@ -35,7 +37,8 @@ function addNode() {
     }
 
     var id = nodes.length + 1
-    nodes.add({ id: id, label: label })
+    var isRoot = nodes.length === 0
+    nodes.add({ id: id, label: label})
     updateNodeColors()
     updateTreeInfo()
 }
@@ -61,6 +64,16 @@ function addEdge() {
             alert('No se puede conectar un nodo consigo mismo.')
             return
         }
+        if (
+            edges.get({
+                filter: function (item) {
+                    return item.from === fromNode.id && item.to === toNode.id
+                },
+            }).length > 0
+        ) {
+            alert('Ya existe una conexión entre estos nodos.')
+            return
+        }
         edges.add({ from: fromNode.id, to: toNode.id })
         updateNodeColors()
         updateTreeInfo()
@@ -80,18 +93,23 @@ function updateNodeColors() {
 
 function determineNodeTypes(nodeIds) {
     var nodeTypes = {}
+    var childNodes = new Set()
+
     nodeIds.forEach(function (id) {
         nodeTypes[id] = 'hoja'
     })
+
     edges.forEach(function (edge) {
         nodeTypes[edge.from] = 'rama'
-        if (!nodeTypes[edge.to]) {
-            nodeTypes[edge.to] = 'hoja'
+        childNodes.add(edge.to)
+    })
+
+    nodeIds.forEach(function (id) {
+        if (!childNodes.has(id)) {
+            nodeTypes[id] = 'raiz'
         }
     })
-    if (nodeIds.length > 0) {
-        nodeTypes[nodeIds[0]] = 'raiz'
-    }
+
     return nodeTypes
 }
 
